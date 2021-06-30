@@ -1,9 +1,10 @@
-// Importando o objeto 'person' - CommonJS:
-// const person = require('./person')
+const Logger = require('./logger')
 
-// Importando a classe 'Person':
-const Person = require('./person')
-// Instanciando:
-const personFromClass = new Person('Felipe', 32)
+// Instantiating a logger:
+const logger = new Logger()
 
-personFromClass.greeting()
+logger.on('message', data =>
+  console.log('Called Listener: ', data)
+)
+
+logger.log('Hello World')
